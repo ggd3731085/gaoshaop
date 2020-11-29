@@ -17,17 +17,17 @@ import HomeHeaderView from './HomeHeader.vue'
 import HomeBannerView from './HomeBanner.vue'
 import HomeNavView from './HomeNav.vue'
 import HomeMainView from './HomeMain.vue'
-import {bindEvent,scrollPic} from '../assets/js/index.js'
+import {bindEvent, scrollPic} from '../assets/js/index.js'
 export default{
-   components:{
-      HomeHeaderView,
-      HomeBannerView,
-      HomeNavView,
-      HomeMainView
-   },
-    mounted(){
-     bindEvent();
-     scrollPic();
+  components: {
+    HomeHeaderView,
+    HomeBannerView,
+    HomeNavView,
+    HomeMainView
+  },
+  mounted () {
+    bindEvent()
+    scrollPic()
   }
 }
 </script>
