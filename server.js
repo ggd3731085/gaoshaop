@@ -15,8 +15,14 @@ app.use(express.static(__dirname + "/dist/"));
 // SPAだとaboutファイルを直で読み込んでいないから
 // これでルート以外でリロードしてもindex.htmlを読み込んでちゃんとルーティングをしてくれる
 // /.*/で全てのルートを指定。req(request), res(response)
-app.get(/.*/, function(req, res) {
-    res.sendfile(__dirname + "/dist/index.html");
+app.get(/.*/, function(req, res,next) {
+    res.sendFile(__dirname + "/dist/index.html");
+    if (req.method == 'OPTIONS') {
+        res.send(200);
+        /make the require of options turn back quickly/
+    } else {
+        next();
+    }
 });
 
 // 一番上で指定したportをlisten
