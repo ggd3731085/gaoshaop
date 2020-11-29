@@ -1,5 +1,8 @@
 // expressの呼び込み
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 // PORTの設定
 // もしenvにportが確立したらそのポートを、していなかったら8080を使う
 const port = process.env.PORT || 8080;
