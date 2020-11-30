@@ -47,7 +47,7 @@ app.listen(port);
 
 
 //deal router
-app.use('/', require('./route/index.js')());
+app.use('/', require(__dirname + '/route/index.js')());
 
 // 動いてるかどうかconsoleで見る
 console.log("Server is up!!");
