@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
+var indexRouter = require('./route/index');
 // PORTの設定
 // もしenvにportが確立したらそのポートを、していなかったら8080を使う
 const port = process.env.PORT || 8080;
@@ -47,7 +48,7 @@ app.listen(port);
 
 
 //deal router
-app.use('/', require(__dirname + '/route/index.js')());
+indexRouter(app);
 
 // 動いてるかどうかconsoleで見る
 console.log("Server is up!!");
