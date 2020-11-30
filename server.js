@@ -31,5 +31,23 @@ app.get(/.*/, function(req, res,next) {
 // 一番上で指定したportをlisten
 app.listen(port);
 
+//deal (cookie,session)
+(() => {
+    app.use(cookieParser());
+    let keyArr = [];
+    for (let i = 0; i < 100000; i++) {
+        keyArr[i] = "xsa_" + Math.random() * 100 + i;
+    }
+    app.use(cookieSession({
+        name: "hc",
+        keys: keyArr,
+        maxAge: 30 * 60 * 1000
+    }))
+})();
+
+
+//deal router
+app.use('/', require('./route/index.js')());
+
 // 動いてるかどうかconsoleで見る
 console.log("Server is up!!");
