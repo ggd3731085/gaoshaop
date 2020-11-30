@@ -30,7 +30,7 @@ axios.interceptors.response.use(function (response) { // 配置请求回来的�
 }, function (error) {
   return Promise.reject(error)
 })
-axios.defaults.baseURL = process.env.baseURL
+axios.defaults.baseURL = process.env.PORT || 8080
 axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.$http = axios
 
