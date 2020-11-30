@@ -1,7 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const common = require('../libs/common');
-var settings = require('./settings');
+var settings = require('../settings');
 const db = mysql.createPool({
     host: settings.host,
     port: settings.port,
