@@ -29,9 +29,6 @@ app.get(/.*/, function(req, res,next) {
     }
 });
 
-// 一番上で指定したportをlisten
-app.listen(port);
-
 //deal (cookie,session)
 (() => {
     app.use(cookieParser());
@@ -46,9 +43,11 @@ app.listen(port);
     }))
 })();
 
-
 //deal router
 indexRouter(app);
+
+// 一番上で指定したportをlisten
+app.listen(port);
 
 // 動いてるかどうかconsoleで見る
 console.log("Server is up!!");
