@@ -84,14 +84,26 @@ body {
     overflow: hidden;
     position: relative;
 }
-
-.m_banner ul:first-of-type {
+.clearfix::before, .clearfix::after {
+    content: '.';
+    height: 0;
+    line-height: 0;
+    clear: both;
+    display: block;
+    visibility: hidden;
+}
+*,::before, ::after {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.m_banner ul:first-child {
     width: 1000%;
     transform: translateX(-10px);
     -webkit-transform: translateX(-10px);
 }
 
-.m_banner ul:first-of-type li {
+.m_banner ul:first-child li {
     width: 10%;
     float: left;
 }
