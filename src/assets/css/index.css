@@ -83,18 +83,15 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 0;
-    margin: 0;
-    -webkit-tap-highlight-color: transparent;
 }
 
-.m_banner ul:first-child {
+.m_banner ul:first-of-type {
     width: 1000%;
     transform: translateX(-10px);
     -webkit-transform: translateX(-10px);
 }
 
-.m_banner ul:first-child li {
+.m_banner ul:first-of-type li {
     width: 10%;
     float: left;
 }
