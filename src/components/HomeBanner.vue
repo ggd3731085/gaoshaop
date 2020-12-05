@@ -1,6 +1,6 @@
 <template>
-	<div class="home_ban">
-		<div class="m_banner clearfix" id="my_banner">
+    <div class="home_ban">
+        <div class="m_banner clearfix" id="my_banner">
                 <ul class="banner_box">
                     <li><img src="../assets/images/l8.jpg" alt="" /></li>
                     <li><img src="../assets/images/l1.jpg" alt="" /></li>
@@ -24,5 +24,5 @@
                     <li></li>
                 </ul>
             </div>
-	</div>
+    </div>
 </template>

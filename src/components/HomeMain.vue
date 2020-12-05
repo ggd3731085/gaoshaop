@@ -1,18 +1,18 @@
 <template>
-	<div class="home_m">
-		 <main class="m_product">
+    <div class="home_m">
+        <main class="m_product">
                 <section class="product_box">
                     <div class="product_top">
                         <a href="#" class="product_left">
                             <img src="../assets/images/jd_skill.png" alt="" class="miaosha_icon">
-                            <strong class="dianshu">六点场</strong>
+                            <strong class="dianshu">六時広場</strong>
                             <span class="time">00:21:43</span>
                         </a>
                     </div>
                     <div class="product_content">
                         <ul>
 
-                            <li class="product_skill_item" v-for="item in homeDatas">
+                            <li class="product_skill_item" v-for="item in homeDatas" :key="item.product_id">
                                 <router-link :to="'/detail/'+item.product_id" class="product_skill_item_link">
                                     <img v-lazy="item.product_img_url" alt="" class="product_skill_item_cion lazy-img-fadein">
                                     <p class="nowprice">
