@@ -11,7 +11,7 @@
                     </div>
                     <div class="product_content">
                         <ul>
-                        
+
                             <li class="product_skill_item" v-for="item in homeDatas">
                                 <router-link :to="'/detail/'+item.product_id" class="product_skill_item_link">
                                     <img v-lazy="item.product_img_url" alt="" class="product_skill_item_cion lazy-img-fadein">
@@ -25,7 +25,7 @@
                                     </p>
                                 </router-link>
                             </li>
-                        
+
                         </ul>
                     </div>
                 </section>
@@ -33,12 +33,12 @@
                     <div class="share_quality">
                         <div class="share_quality_top">
                             <div class="share_title">
-                                <p class="share_text">为你推荐</p>
+                                <p class="share_text">おすすめ</p>
                             </div>
                         </div>
                         <div class="share_quality_left not_eng_box">
                             <ul>
-                                <li class="not_eng_item" v-for="item in mainDatas">
+                                <li class="not_eng_item" v-for="item in mainDatas" :key="item.product_img_url">
                                     <router-link  class="not_eng_link" :to="'/detail/'+item.product_id">
                                         <img v-lazy="item.product_img_url" alt="" class="not_eng_pic lazy-img-fadein">
                                         <div class="not_eng_info">
@@ -50,7 +50,7 @@
                                         </div>
                                     </router-link>
                                 </li>
-                        
+
                             </ul>
                         </div>
                     </div>
@@ -59,31 +59,34 @@
 	</div>
 </template>
 <script>
-    export default{
-        data(){
-            return {
-                homeDatas : [],
-                mainDatas:[]
-            }
-        },
-        mounted(){
-            this.getData();
-        },
-        methods:{
-            getData(){
-                let _this = this;
-                _this.$http.get('/home').then((res)=>{
-                    _this.homeDatas.push(res.data[0]);
-                    _this.homeDatas.push(res.data[1]);
-                    _this.homeDatas.push(res.data[2]);
-                    _this.homeDatas.push(res.data[3]);
-                    _this.mainDatas = res.data;
-                },(err)=>{
-                    console.log(err);
-                })
-            }
-        }
+export default{
+  data () {
+    return {
+      homeDatas: [],
+      mainDatas: []
     }
+  },
+  // eslint-disable-next-line space-before-function-paren
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    // eslint-disable-next-line space-before-blocks
+    getData (){
+      let _this = this
+      _this.$http.get('/home').then((res) => {
+        _this.homeDatas.push(res.data[0])
+        _this.homeDatas.push(res.data[1])
+        _this.homeDatas.push(res.data[2])
+        _this.homeDatas.push(res.data[3])
+        _this.mainDatas = res.data
+      }, (err) => {
+        console.log(err)
+      })
+    }
+    // eslint-disable-next-line indent
+        }
+}
 </script>
 <style>
     img[lazy=error] {
