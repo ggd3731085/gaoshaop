@@ -8,7 +8,7 @@ const db = mysql.createPool({
   user: settings.user,
   password: settings.password,
   database: settings.db
-});
+})
 module.exports = () => {
   const route = express.Router()
   const getHomeStr = `SELECT product_id,product_name,product_price,product_img_url,product_uprice FROM product limit 10`;
@@ -183,8 +183,9 @@ module.exports = () => {
     }
     let username = mObj.loginName
     let password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE)
-    console.log(username, mObj.passwd)
-    const selectUser = `SELECT * FROM user where user_name='${username}'`
+    console.log(username + ' : ' + mObj.passwd)
+    // const selectUser = `SELECT * FROM user where user_name='${username}'`
+    const selectUser = 'SELECT * FROM user'
     db.query(selectUser, (err, data) => {
       if (err) {
         console.log('service error:' + err)
