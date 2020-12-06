@@ -227,9 +227,7 @@ export default{
         uObj = JSON.parse(window.sessionStorage.userInfo)
         let useId = uObj.user_id
         _this.$http.get('/userinfo', {
-          params: {
-            uId: useId
-          }
+          uId: useId
         }).then((res) => {
           _this.uInfs = res.data
           console.log(_this.uInfs)
