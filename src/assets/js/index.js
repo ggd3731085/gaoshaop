@@ -50,8 +50,8 @@ function scrollPic() {
         imgBox.style.webkitTransform = 'translateX(' + t + 'px)';
     }
     //3. 开始动画部分
-    pointBox.children[0].className = "now";
-    for (var i = 0; i < ols.length; i++) {
+  pointBox.children[0].className = 'now'
+  for (var i = 0; i < ols.length; i++) {
         ols[i].index = i; // 获得当前第几个小li 的索引号
         ols[i].onmouseover = function() {
             for (var j = 0; j < ols.length; j++) {
@@ -63,7 +63,7 @@ function scrollPic() {
             square = indexx; // 当前的索引号为主
         }
     }
-    timer = setInterval(function() {
+    /*timer = setInterval(function() {
         indexx++;
         addTransition();
         setTransfrom(-indexx * width);
@@ -78,7 +78,7 @@ function scrollPic() {
         }
         console.log("最初", square);
         ols[square].className = "now"; // 留下当前的
-    }, 3000);
+    }, 3000)*/
 
     imgBox.addEventListener('transitionEnd', function() {
         if (indexx >= 9) {
@@ -149,7 +149,7 @@ function scrollPic() {
         endX = 0;
 
         clearInterval(timer);
-        timer = setInterval(function() {
+        /*timer = setInterval(function() {
             indexx++;
             square++;
             if (square > ols.length - 1) {
@@ -164,7 +164,7 @@ function scrollPic() {
             addTransition();
             setTransfrom(-indexx * width);
 
-        }, 3000);
+        }, 3000)*/
     }, false);
 };
 
