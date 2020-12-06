@@ -28,7 +28,7 @@ body {
     background: rgba(201, 21, 35, 0);
 }
 
-.m_header_box .icon_logo {
+.icon_logo {
     width: 60px;
     height: 36px;
     position: absolute;
@@ -37,7 +37,6 @@ body {
     background-position: 0 -103px;
     display: block;
 }
-
 .m_header_box form {
     width: 100%;
     height: 40px;
