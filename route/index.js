@@ -176,13 +176,13 @@ module.exports = () => {
   })
   };
   route.post('/login', (req, res) => {
-    let mObj = {}
+    var mObj = {}
     for (let obj in req.body) {
       mObj = JSON.parse(obj)
       console.log(mObj)
     }
-    let username = mObj.loginName
-    let password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE)
+    var username = mObj.loginName
+    var password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE)
     console.log(username + ' : ' + mObj.passwd)
     const selectUser = 'SELECT * FROM user where user_name=\'' + this.username + '\''
     console.log('selectUser:' + selectUser)
