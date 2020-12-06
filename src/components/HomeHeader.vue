@@ -7,7 +7,7 @@
                         <span class="icon_search"></span>
                         <input type="search" class="search" placeholder="検索" @click="goSearch($event)">
                     </form>
-                    <router-link to="/login" class="logo_btn">ログイン</router-link>
+                    <router-link to="/login" class="logo_btn">login</router-link>
                 </div>
             </header>
     </div>
