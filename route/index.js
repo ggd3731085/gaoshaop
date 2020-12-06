@@ -183,19 +183,19 @@ module.exports = () => {
     }
     let username = mObj.loginName
     let password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE)
-    // console.log(username, mObj.passwd);
+    console.log(username, mObj.passwd)
     const selectUser = `SELECT * FROM user where user_name='${username}'`
     db.query(selectUser, (err, data) => {
       if (err) {
         console.log('service error:' + err)
-        res.send({ 'msg': '服务器出错', 'status': 0 }).end();
+        res.send({ 'msg': '服务器出错', 'status': 0 }).end()
       } else {
         if (data.length === 0) {
-          res.send({ 'msg': '该用户不存在', 'status': -1 }).end();
+          res.send({ 'msg': '该用户不存在', 'status': -1 }).end()
         } else {
           let dataw = data[0]
           // login sucess
-          console.log('login_password:' + dataw.login_password);
+          console.log('login_password:' + dataw.login_password)
           console.log('password:' + password)
           if (dataw.login_password === password) {
             // save the session
