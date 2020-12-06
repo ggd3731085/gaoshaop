@@ -210,38 +210,38 @@
 	</div>
 </template>
 <script>
-	export default{
-		data(){
-			return{
-				uInfs:{}
-			}
-		},
-		mounted(){
-			this.getUDatas();
-		},
-		methods:{
-			getUDatas(){
-				let _this = this;
-				let uObj ={};
-				if(window.sessionStorage.userInfo){
-					let uObj = JSON.parse(window.sessionStorage.userInfo);
-					let useId = uObj.user_id;
-					_this.$http.get('/userinfo',{
-						params:{
-							uId:useId
-						}
-					}).then((res)=>{
-						_this.uInfs = res.data;
-						console.log(_this.uInfs);
-					},(err)=>{
-						console.log(err);
-					});
-				}else{
-					_this.$router.push({
-						path:'/login',
-					})
-				}
-			}
-		}
-	}
+export default{
+  data () {
+    return {
+      uInfs: {}
+    }
+  },
+  mounted () {
+    this.getUDatas()
+  },
+  methods: {
+    getUDatas () {
+      let _this = this
+      let uObj = {}
+      if (window.sessionStorage.userInfo) {
+        uObj = JSON.parse(window.sessionStorage.userInfo)
+        let useId = uObj.user_id
+        _this.$http.get('/userinfo', {
+          params: {
+            uId: useId
+          }
+        }).then((res) => {
+          _this.uInfs = res.data
+          console.log(_this.uInfs)
+        }, (err) => {
+          console.log(err)
+        })
+      } else {
+        _this.$router.push({
+          path: '/login'
+        })
+      }
+    }
+  }
+}
 </script>

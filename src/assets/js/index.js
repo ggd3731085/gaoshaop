@@ -55,9 +55,9 @@ function scrollPic() {
         ols[i].index = i; // 获得当前第几个小li 的索引号
         ols[i].onmouseover = function() {
             for (var j = 0; j < ols.length; j++) {
-                ols[j].className = ""; // 所有的都要清空
+                ols[j].className = '' // 所有的都要清空
             }
-            this.className = "now";
+            this.className = 'now'
             setTransfrom(-indexx * width);
             // 调用动画函数  第一个参数  谁动画     第二个  走多少
             square = indexx; // 当前的索引号为主
@@ -128,45 +128,44 @@ function scrollPic() {
     /**
      * 触摸结束事件
      */
-    imgBox.addEventListener("touchend", function() {
-        console.log("end");
+    imgBox.addEventListener('touchend', function () {
+        console.log("end")
         //如果移动的位置大于三分之一，并且是移动过的
         if (Math.abs(moveX) > (1 / 3 * width) && endX != 0) {
-            //向左
+            // 向左
             if (moveX > 0) {
                 indexx++;
             } else {
                 indexx--;
             }
-            //改变位置
+            // 改变位置
             setTransfrom(-indexx * width);
         }
-        //回到原来的位置
+        // 回到原来的位置
         addTransition();
         setTransfrom(-indexx * width);
-        //初始化
-        startX = 0;
-        endX = 0;
+        // 初始化
+        startX = 0
+        endX = 0
 
-        clearInterval(timer);
-        /*timer = setInterval(function() {
-            indexx++;
-            square++;
-            if (square > ols.length - 1) {
-                square = 0;
-            }
-            for (var i = 0; i < ols.length; i++) // 先清除所有的
-            {
-                ols[i].className = "";
-            }
-            console.log("最初", square);
-            ols[square].className = "now"; // 留下当前的
-            addTransition();
-            setTransfrom(-indexx * width);
-
-        }, 3000)*/
-    }, false);
-};
+    clearInterval(timer)
+    /* timer = setInterval(function() {
+        indexx++
+        square++
+        if (square > ols.length - 1) {
+            square = 0;
+        }
+        for (var i = 0; i < ols.length; i++) // 先清除所有的
+        {
+            ols[i].className = "";
+        }
+        console.log("最初", square);
+        ols[square].className = "now"; // 留下当前的
+        addTransition();
+        setTransfrom(-indexx * width);      
+    }, 3000)*/
+    }, false)
+}
 
 module.exports = {
     bindEvent,
