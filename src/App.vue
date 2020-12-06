@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view/>
+    <NavBottomView v-show="shownav"></NavBottomView>
   </div>
 </template>
 
 <script>
+import NavBottomView from './components/NavBottom.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    NavBottomView
+  }
 }
 </script>
 
