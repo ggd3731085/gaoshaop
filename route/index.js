@@ -184,7 +184,7 @@ module.exports = () => {
     let username = mObj.loginName
     let password = common.md5(mObj.loginPawd + common.MD5_SUFFXIE)
     console.log(username + ' : ' + mObj.passwd)
-    const selectUser = `SELECT * FROM user where user_name='${username}'`
+    const selectUser = 'SELECT * FROM user where user_name=\'' + username + '\''
     console.log('selectUser:' + selectUser)
     // const selectUser = 'SELECT * FROM user'
     db.query(selectUser, (err, data) => {
