@@ -28,7 +28,7 @@ body {
     background: rgba(201, 21, 35, 0);
 }
 
-.icon_logo {
+.m_header_box .icon_logo {
     width: 60px;
     height: 36px;
     position: absolute;
@@ -70,7 +70,7 @@ body {
     position: absolute;
     right: 8px;
     top: 0;
-    color: #fff;
+    color: rgb(255, 255, 255);
     line-height: 40px;
     font-weight: 400;
 }
