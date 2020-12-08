@@ -11,8 +11,8 @@ const db = mysql.createPool({
 })
 module.exports = () => {
   const route = express.Router()
-  const getHomeStr = `SELECT product_id,product_name,product_price,product_img_url,product_uprice FROM product limit 10`;
-  const getCateNames = `SELECT * FROM category ORDER BY category_id desc`;
+  const getHomeStr = `SELECT product_id,product_name,product_price,product_img_url,product_uprice FROM product limit 1`;
+  const getCateNames = `SELECT * FROM category ORDER BY category_id desc  limit 1`;
   // get homePage datas
   route.get('/home', (req, res) => {
     getHomeDatas(getHomeStr, res)
@@ -53,7 +53,7 @@ module.exports = () => {
   }
   route.get('/categorygoods', (req, res) => {
     let mId = req.query.mId
-    const sql = `select * from product,category where product.category_id=category.category_id and category.category_id='${mId}'`;
+    const sql = `select * from product,category where product.category_id=category.category_id and category.category_id='${mId}' limit 2`;
     getCateGoods(sql, res)
   })
 
@@ -222,14 +222,14 @@ module.exports = () => {
       if (err) {
         console.log(err)
         res.status(500).send('database err').end()
-  } else {
-  if (data.length == 0) {
-  res.status(500).send('no datas').end();
-  } else {
-  res.send(data[0]);
-  }
-  }
-  });
-  });
-  return route;
+      } else {
+        if (data.length === 0) {
+          res.status(500).send('no datas').end()
+        } else {
+          res.send(data[0])
+        }
+      }
+    })
+  })
+  return route
 }
