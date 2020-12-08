@@ -80,6 +80,7 @@ export default{
         _this.homeDatas.push(res.data[2])
         _this.homeDatas.push(res.data[3])
         _this.mainDatas = res.data
+        console.log('mainDatas.length:' + _this.mainDatas.length)
       }, (err) => {
         console.log(err)
       })
