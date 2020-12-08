@@ -11,8 +11,8 @@ const db = mysql.createPool({
 })
 module.exports = () => {
   const route = express.Router()
-  const getHomeStr = `SELECT product_id,product_name,product_price,product_img_url,product_uprice FROM product limit 1`
-  const getCateNames = `SELECT * FROM category ORDER BY category_id desc  limit 1`
+  const getHomeStr = 'SELECT product_id,product_name,product_price,product_img_url,product_uprice FROM product limit 1'
+  const getCateNames = 'SELECT * FROM category ORDER BY category_id desc limit 1'
   // get homePage datas
   route.get('/home', (req, res) => {
     getHomeDatas(getHomeStr, res)
