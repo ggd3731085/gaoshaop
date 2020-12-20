@@ -7,6 +7,8 @@ import Loading from './components/loading'
 import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 import store from './store/'
+import vuetify from 'vuetify'
+// import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 Vue.use(Loading)
@@ -40,6 +42,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  vuetify,
   components: { App },
   template: '<App/>'
 })
