@@ -3,10 +3,7 @@
 		<nav class="m_nav">
                 <ul>
                     <li class="nav_item">
-                        <a href="#" class="nav_item_link">
-                            <img src="../assets/images/nav0.png" alt="">
-                            <span>資格管理システム</span>
-                        </a>
+                        <a href="#" ></a>
                         <router-link to="/searchpage" class="logo_btn">searchpage</router-link>
                     </li>
                     <li class="nav_item">
