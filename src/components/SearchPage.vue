@@ -43,7 +43,6 @@
 			class="elevation-1"
 		></v-data-table>
 	</div>
-		
 	<div v-else-if="title=='入力画面'">
 		<InputMainView></InputMainView>
 	</div>
@@ -55,4 +54,5 @@
 
   </div>
 </template>
-<script src="./js/searchPage.js"></script>
+<script src="./js/searchPage.js">
+</script>
