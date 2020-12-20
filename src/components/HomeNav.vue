@@ -7,7 +7,7 @@
                             <img src="../assets/images/nav0.png" alt="">
                             <span>資格管理システム</span>
                         </a>
-                        <router-link to="/login" class="logo_btn">login</router-link>
+                        <router-link to="/searchpage" class="logo_btn">searchpage</router-link>
                     </li>
                     <li class="nav_item">
                         <a href="#" class="nav_item_link">
