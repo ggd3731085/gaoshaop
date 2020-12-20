@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="apps">
     <v-card class="mx-auto overflow-hidden" height="400">
       <v-app-bar color="deep-purple" dark>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
@@ -33,20 +33,19 @@
       </v-navigation-drawer>
 
 	<div v-if="title=='検索画面'">
-
-		<v-data-table
-			:headers="headers"
-			:items="desserts"
-			:items-per-page="5"
-			class="elevation-1"
-		></v-data-table>
-	</div>
-	<div v-else-if="title=='入力画面'">
-		<InputMainView></InputMainView>
-	</div>
-	<div v-else-if="title=='社員一覧'">
-		<ListMainView></ListMainView>
-	</div>
+		  <v-data-table
+		  	:headers="headers"
+		  	:items="desserts"
+		  	:items-per-page="5"
+		  	class="elevation-1"
+		  ></v-data-table>
+	    </div>
+	    <div v-else-if="title=='入力画面'">
+	    	<InputMainView></InputMainView>
+	    </div>
+	    <div v-else-if="title=='社員一覧'">
+	    	<ListMainView></ListMainView>
+	    </div>
 
     </v-card>
 
@@ -55,7 +54,6 @@
 <script>
 import InputMainView from './InputPage.vue'
 import ListMainView from './ListPage.vue'
-
 export default{
   data () {
         return {
@@ -163,8 +161,7 @@ export default{
 	    InputMainView,
 			ListMainView
 	  },
-    // eslint-disable-next-line key-spacing
-    methods:{
+    methods: {
       input () {
         this.title = '入力画面'
         console.log(this.title)
