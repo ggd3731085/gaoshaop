@@ -19,6 +19,7 @@ Vue.use(VueLazyload, {
   attempt: 1,
   listenEvents: ['scroll']
 })
+Vue.use(vuetify)
 // axios的一些配置，比如发送请求显示loading，请求回来loading消失之类的
 axios.interceptors.request.use(function (config) { // 配置发送请求的信息
   store.dispatch('showLoading')
