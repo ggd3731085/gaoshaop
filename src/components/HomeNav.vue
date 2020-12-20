@@ -5,8 +5,9 @@
                     <li class="nav_item">
                         <a href="#" class="nav_item_link">
                             <img src="../assets/images/nav0.png" alt="">
-                            <span>京东超市</span>
+                            <span>資格管理システム</span>
                         </a>
+                        <router-link to="/login" class="logo_btn">login</router-link>
                     </li>
                     <li class="nav_item">
                         <a href="#" class="nav_item_link">
