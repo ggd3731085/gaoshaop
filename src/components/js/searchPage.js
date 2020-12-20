@@ -105,10 +105,10 @@ export default{
             ]
         }
     },
-    components:{
-			InputMainView,
+    components: {
+	    InputMainView,
 			ListMainView
-		},
+	  },
     // eslint-disable-next-line key-spacing
     methods:{
       input () {
