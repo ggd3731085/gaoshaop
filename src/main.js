@@ -7,7 +7,7 @@ import Loading from './components/loading'
 import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 import store from './store/'
-import vuetify from 'vuetify'
+import vuetify123 from 'vuetify'
 // import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
@@ -19,7 +19,7 @@ Vue.use(VueLazyload, {
   attempt: 1,
   listenEvents: ['scroll']
 })
-Vue.use(vuetify)
+Vue.use(vuetify123)
 // axios的一些配置，比如发送请求显示loading，请求回来loading消失之类的
 axios.interceptors.request.use(function (config) { // 配置发送请求的信息
   store.dispatch('showLoading')
