@@ -7,12 +7,12 @@ import Loading from './components/loading'
 import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 import store from './store/'
-// import vuetify from './plugins/vuetify'
-import vuetify from 'vuetify'
+import Vuetify from 'vuetify' // 使用vuetify UI框架
+import 'vuetify/dist/vuetify.min.css' // 导入 vuetify样式
 
 Vue.config.productionTip = false
 Vue.use(Loading)
-Vue.use(vuetify)
+Vue.use(Vuetify)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: require('./assets/images/err.png'),
@@ -37,13 +37,13 @@ axios.interceptors.response.use(function (response) { // 配置请求回来的�
 axios.defaults.baseURL = process.env.baseURL
 axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.$http = axios
-
+export default new Vuetify({}) // 导出vuetify对象 不然会报错
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
-  vuetify,
+  vuetify: new Vuetify(), // 使用它
   components: { App },
   template: '<App/>'
 })

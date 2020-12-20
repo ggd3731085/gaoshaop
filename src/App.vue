@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <loading v-show="loading"></loading>
-    <router-view/>
-    <NavBottomView v-show="shownav"></NavBottomView>
-  </div>
+  <v-app>
+    <div id="app">
+      <loading v-show="loading"></loading>
+      <router-view/>
+      <NavBottomView v-show="shownav"></NavBottomView>
+    </div>
+   </v-app>
 </template>
 
 <script>
