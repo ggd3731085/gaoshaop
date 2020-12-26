@@ -167,6 +167,7 @@
         } else {
           this.desserts.push(this.editedItem)
         }
+        consol.log('save_end')
         this.close()
       },
     },

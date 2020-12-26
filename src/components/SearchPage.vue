@@ -13,7 +13,7 @@
         <!--v-toolbar-->
         <v-toolbar flat>
           <!--v-toolbar-title-->
-          <v-toolbar-title>My CRUD</v-toolbar-title>
+          <v-toolbar-title>資格検索</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
@@ -24,7 +24,7 @@
           <v-dialog
             v-model="dialog"
             max-width="500px">
-            <!--ボタン-->
+            <!--新規ボタン-->
             <template v-slot:activator="{ on, attrs }">
               <v-btn
                 color="primary"
@@ -33,7 +33,7 @@
                 v-bind="attrs"
                 v-on="on"
               >
-                New Item
+                新規
               </v-btn>
             </template>
             <!--v-card--->
@@ -167,4 +167,3 @@
 </div>
 </template>
 <script src="./js/searchPage.js"></script>
-
