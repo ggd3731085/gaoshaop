@@ -48,59 +48,48 @@
                 <v-container>
                   <!--行-->
                   <v-row>
-                    <!--列1 Dessert name-->
+                    <!--列1 employee_id-->
                     <v-col
                       cols="12"
                       sm="6"
                       md="4"
                     >
                       <v-text-field
-                        v-model="editedItem.name"
-                        label="Dessert name"
+                        v-model="editedItem.employee_id"
+                        label="employee_id"
                       ></v-text-field>
                     </v-col>
-                    <!--列2 Calories-->
+                    <!--列2 certification_name-->
                     <v-col
                       cols="12"
                       sm="6"
                       md="4"
                     >
                       <v-text-field
-                        v-model="editedItem.calories"
-                        label="Calories"
+                        v-model="editedItem.certification_name"
+                        label="certification_name"
                       ></v-text-field>
                     </v-col>
-                    <!--列3 Fat (g)-->
+                    <!--列3 get_date-->
                     <v-col
                       cols="12"
                       sm="6"
                       md="4"
                     >
                       <v-text-field
-                        v-model="editedItem.fat"
-                        label="Fat (g)"
+                        v-model="editedItem.get_date"
+                        label="get_date"
                       ></v-text-field>
                     </v-col>
-                    <!--列4 Carbs (g)-->
+                    <!--列4 encourage_date-->
                     <v-col
                       cols="12"
                       sm="6"
                       md="4"
                     >
                       <v-text-field
-                        v-model="editedItem.carbs"
-                        label="Carbs (g)"
-                      ></v-text-field>
-                    </v-col>
-                    <!--列5 Protein (g)-->
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      md="4"
-                    >
-                      <v-text-field
-                        v-model="editedItem.protein"
-                        label="Protein (g)"
+                        v-model="editedItem.encourage_date"
+                        label="encourage_date"
                       ></v-text-field>
                     </v-col>
                   </v-row>
