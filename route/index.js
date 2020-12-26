@@ -170,12 +170,28 @@ module.exports = () => {
     for (let obj in req.body) {
       mObj = JSON.parse(obj)
     }
-    let regName = mObj.regName
-    let regPasswd = mObj.regPasswd
-    regPasswd = common.md5(regPasswd + common.MD5_SUFFXIE)
-    const insUserInfo = `INSERT INTO user(user_name,login_password,user_number) VALUES('${regName}','${regPasswd}','${regName}')`
-    delReg(insUserInfo, res)
+    let editedItem = mObj.editedItem
+    let employee_id = editedItem.employee_id
+    let certification_name = editedItem.certification_name
+    let get_date = editedItem.get_date
+    let encourage_date = editedItem.encourage_date
+
+    const insEmployee_certification = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
+    delReg(insEmployee_certification, res)
   })
+    /*
+   *deal insEmployee_certification
+   */
+  function insEmployee_certification (insEmployee_certification, res) {
+    db.query(insEmployee_certification, (err) => {
+      if (err) {
+        console.error(err)
+        res.send({ 'msg': '服务器出错', 'status': 0 }).end()
+      } else {
+        res.send({ 'msg': '注册成功', 'status': 1 }).end()
+      }
+    })
+  };
   /*
    *deal user register
    */

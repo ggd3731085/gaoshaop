@@ -4,15 +4,14 @@ export default {
     dialogDelete: false,
     headers: [
       {
-        text: 'Dessert (100g serving)',
+        text: 'employee_id',
         align: 'start',
         sortable: false,
-        value: 'name'
+        value: 'employee_id'
       },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
+      { text: 'certification_name', value: 'certification_name' },
+      { text: 'get_date', value: 'get_date' },
+      { text: 'encourage_date', value: 'encourage_date' },
       { text: 'Actions', value: 'actions', sortable: false }
     ],
     desserts: [],
@@ -114,8 +113,7 @@ export default {
         alert('データを入力してください')
       } else {
         _this.$http.post('/saveEmployeeCertification', {
-          regName: _this.regname,
-          regPasswd: _this.regpasswd
+          editedItem: _this.editedItem
         }).then((res) => {
           if (res.status === 200) {
             _this.regInfo = res.data
