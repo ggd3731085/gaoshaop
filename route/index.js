@@ -148,6 +148,30 @@ module.exports = () => {
       }
     })
   }
+  /**
+  employee_certification 検索
+  */
+  route.get('/searchEmployeeCertification', (req, res) => {
+    const sqlStr = 'select  *  from employee_certification'
+    getEmployeeCertificationDatas(sqlStr, res)
+  })
+  /**
+  get search datas
+  */
+  function getEmployeeCertificationDatas (sqlStr, res) {
+    db.query(sqlStr, (err, data) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send('database err').end()
+      } else {
+        if (data.length === 0) {
+          res.status(500).send('no datas').end()
+        } else {
+          res.send(data)
+        }
+      }
+    })
+  }
   /*
    *user reg func
    */

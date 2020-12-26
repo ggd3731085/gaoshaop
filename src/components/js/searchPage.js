@@ -17,18 +17,16 @@ export default {
     desserts: [],
     editedIndex: -1,
     editedItem: {
-      name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0
+      employee_id: '',
+      certification_name: '',
+      get_date: '',
+      encourage_date: ''
     },
     defaultItem: {
-      name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0
+      employee_id: '',
+      certification_name: '',
+      get_date: '',
+      encourage_date: ''
     }
   }),
 
@@ -53,20 +51,18 @@ export default {
 
   methods: {
     initialize () {
-      this.desserts = [
-        {
-          employee_id: 'tenji001',
-          certification_name: 'SFDC',
-          get_date: '2019-12-01',
-          encourage_date: '2020-01-01'
-        },
-        {
-          employee_id: 'tenji002',
-          certification_name: '日本語',
-          get_date: '2019-12-01',
-          encourage_date: '2020-01-01'
+      let _this = this
+      _this.$http.get('/searchEmployeeCertification', {
+      }).then((res) => {
+        if (res.status === 200) {
+          _this.desserts = res.data
+        } else {
+          alert('エラーが発生しました')
         }
-      ]
+        console.log(res)
+      }, (err) => {
+        console.log(err)
+      })
     },
 
     editItem (item) {
