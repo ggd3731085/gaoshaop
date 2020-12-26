@@ -106,7 +106,7 @@
                   </v-row>
                 </v-container>
               </v-card-text>
-              <!--v-card-actions-->
+              <!--v-card-actionsキャンセル、ボタン-->
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn
@@ -114,14 +114,14 @@
                   text
                   @click="close"
                 >
-                  Cancel
+                  取消
                 </v-btn>
                 <v-btn
                   color="blue darken-1"
                   text
                   @click="save"
                 >
-                  Save
+                  保存
                 </v-btn>
               </v-card-actions>
             </v-card>
