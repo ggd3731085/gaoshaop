@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require('express')
 const mysql = require('mysql')
 const common = require('../libs/common')
@@ -195,19 +196,19 @@ module.exports = () => {
       mObj = JSON.parse(obj)
     }
     let editedItem = mObj.editedItem
-    let employee_id = editedItem.employee_id
-    let certification_name = editedItem.certification_name
-    let get_date = editedItem.get_date
-    let encourage_date = editedItem.encourage_date
+    let employeeId = editedItem.employee_id
+    let certificationName = editedItem.certification_name
+    let getDate = editedItem.get_date
+    let encourageDate = editedItem.encourage_date
 
-    const insEmployee_certification = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
-    delReg(insEmployee_certification, res)
+    const insEmployeeCertificationSql = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employeeId}','${certificationName}','${getDate}','${encourageDate}')`
+    insEmployeeCertification(insEmployeeCertificationSql, res)
   })
-    /*
-   *deal insEmployee_certification
+  /*
+   *deal insEmployeeCertification
    */
-  function insEmployee_certification (insEmployee_certification, res) {
-    db.query(insEmployee_certification, (err) => {
+  function insEmployeeCertification (insEmployeeCertificationSql, res) {
+    db.query(insEmployeeCertificationSql, (err) => {
       if (err) {
         console.error(err)
         res.send({ 'msg': '服务器出错', 'status': 0 }).end()

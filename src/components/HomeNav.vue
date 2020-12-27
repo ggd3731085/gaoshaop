@@ -1,10 +1,10 @@
 <template>
-	<div class="home_n">
-		<nav class="m_nav">
+    <div class="home_n">
+        <nav class="m_nav">
                 <ul>
                     <li class="nav_item">
                         <a href="#" ></a>
-                        <router-link to="/searchpage" class="logo_btn">searchpage</router-link>
+                        <router-link to="/homepage" class="logo_btn">資格管理</router-link>
                     </li>
                     <li class="nav_item">
                         <a href="#" class="nav_item_link">

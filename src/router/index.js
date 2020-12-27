@@ -5,6 +5,7 @@ import Login from '@/components/Login.vue'
 import Reg from '@/components/Reg.vue'
 import Mine from '@/components/Mine.vue'
 import SearchPage from '@/components/SearchPage.vue'
+import HomePage from '@/components/HomePage.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,10 @@ export default new Router({
     path: '/mine',
     name: 'Mine',
     component: Mine
+  }, {
+    path: '/homepage',
+    name: 'HomePage',
+    component: HomePage
   }, {
     path: '/searchpage',
     name: 'SearchPage',

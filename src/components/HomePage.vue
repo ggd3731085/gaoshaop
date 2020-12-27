@@ -25,7 +25,7 @@
               <v-list-item-title @click="input">入力画面</v-list-item-title>
             </v-list-item>
 
-			<v-list-item>
+            <v-list-item>
               <v-list-item-icon>
                 <v-icon>mdi-account</v-icon>
               </v-list-item-icon>
@@ -35,21 +35,17 @@
         </v-list>
       </v-navigation-drawer>
 
-	<div v-if="title=='検索画面'">
-		<SearchMainView></SearchMainView>
-	</div>
-		
-	<div v-else-if="title=='入力画面'">
-		<InputMainView></InputMainView>
-	</div>
-
-	<div v-else-if="title=='社員一覧'">
-		<ListMainView></ListMainView>
-	</div>
-
-    </v-card>
-  </v-app>
+      <div v-if="title=='検索画面'">
+        <SearchMainView></SearchMainView>
+      </div>
+      <div v-else-if="title=='入力画面'">
+        <InputMainView></InputMainView>
+      </div>
+      <div v-else-if="title=='社員一覧'">
+        <ListMainView></ListMainView>
+      </div>
+        </v-card>
+      </v-app>
 </div>
 </template>
 <script src="./js/homePage.js"></script>
-
