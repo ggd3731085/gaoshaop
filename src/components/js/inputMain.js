@@ -71,7 +71,7 @@ export default {
         _this.$http.post('/saveEmployeeCertification', sendData).then((res) => {
           if (res.status === 200) {
             _this.regInfo = res.data
-            if (_this.regInfo.status == 1) {
+            if (_this.regInfo.status === 1) {
               // alert('提出成功しました。');
               this.$emit('handleSwitch', 'search')
             } else {
