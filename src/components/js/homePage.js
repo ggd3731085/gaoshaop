@@ -1,9 +1,9 @@
-import InputMainView from '../InputPage.vue';
-import ListMainView from '../ListPage.vue';
-import SearchMainView from '../SearchPage.vue';
+import InputMainView from '../InputPage.vue'
+import ListMainView from '../ListPage.vue'
+import SearchMainView from '../SearchPage.vue'
 
 export default {
-  data() {
+  data () {
     return {
       drawer: false,
       group: null,
@@ -17,27 +17,27 @@ export default {
     SearchMainView
   },
   methods: {
-    input(event, data = false) {
+    input (event, data = false) {
       this.title = '入力画面'
       if (data) {
         this.title = '更新画面'
         this.inputData = data
       }
     },
-    list() {
+    list () {
       this.title = '社員一覧'
     },
-    search() {
+    search () {
       this.title = '検索画面'
     },
     handleSwitch (event, data) {
-      if (event == 'input') {
-        this.input('', data)
-      } else if (event == 'search') {
+      if (event === 'input') {
+        this.input(event, data)
+      } else if (event === 'search') {
         this.search()
-      } else if (event == 'list') {
+      } else if (event === 'list') {
         this.list()
       }
-    },
+    }
   }
 }

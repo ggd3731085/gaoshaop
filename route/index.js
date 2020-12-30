@@ -190,7 +190,7 @@ module.exports = () => {
   /*
    *user reg func
    */
-  route.post('/saveEmployeeCertification', (req, res) => {
+  /* route.post('/saveEmployeeCertification', (req, res) => {
     let mObj = {}
     for (let obj in req.body) {
       mObj = JSON.parse(obj)
@@ -203,6 +203,20 @@ module.exports = () => {
 
     const insEmployeeCertificationSql = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employeeId}','${certificationName}','${getDate}','${encourageDate}')`
     insEmployeeCertification(insEmployeeCertificationSql, res)
+  }) */
+  route.post('/saveEmployeeCertification', (req, res) => {
+    let mObj = {}
+    for (let obj in req.body) {
+      mObj = JSON.parse(obj)
+    }
+    let editedItem = mObj
+    let employeeId = editedItem.employeeId
+    let certificationName = editedItem.certificationName
+    let getDate = editedItem.getDate
+    let encourageDate = editedItem.encourageDate
+
+    const insEmployeeCertification = `INSERT INTO employee_certification(employeeId,certificationName,getDate,encourageDate) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
+    insEmployeeCertification(insEmployeeCertification, res)
   })
   /*
    *deal insEmployeeCertification

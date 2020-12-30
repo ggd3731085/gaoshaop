@@ -38,13 +38,13 @@
 	<div v-if="title=='検索画面'">
 		<SearchMainView v-on:handleSwitch="handleSwitch"></SearchMainView>
 	</div>
-		
+
 	<div v-else-if="title=='入力画面' ||title=='更新画面' ">
-		<InputMainView :parentData="inputData" v-on:handleSwitch="handleSwitch"></InputMainView>
+    <InputMainView :parentData="inputData" v-on:handleSwitch="handleSwitch"></InputMainView>
 	</div>
 
 	<div v-else-if="title=='社員一覧'">
-		<ListMainView v-on:handleSwitch="handleSwitch"></ListMainView>
+    <ListMainView v-on:handleSwitch="handleSwitch"></ListMainView>
 	</div>
 
     </v-card>
@@ -52,4 +52,3 @@
 </div>
 </template>
 <script src="./js/homePage.js"></script>
-
