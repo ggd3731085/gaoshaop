@@ -215,7 +215,7 @@ module.exports = () => {
     let getDate = editedItem.getDate
     let encourageDate = editedItem.encourageDate
 
-    const insEmployeeCertification = `INSERT INTO employee_certification(employeeId,certificationName,getDate,encourageDate) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
+    const insEmployeeCertification = `INSERT INTO employee_certification(employeeId,certificationName,getDate,encourageDate) VALUES('${employeeId}','${certificationName}','${getDate}','${encourageDate}')`
     insEmployeeCertification(insEmployeeCertification, res)
   })
   /*
