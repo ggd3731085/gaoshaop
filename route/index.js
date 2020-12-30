@@ -286,14 +286,16 @@ module.exports = () => {
       }
     })
   })
-  route.get('/employeeinfo', (req, res) => {
-    const getEmployee = "SELECT employee_id as '社員番号',name,name as '名前',frigana as 'フリガナ',DATE_FORMAT( entering_date , '%Y/%m/%d' ) '入社年月日' from employee "
+  route.get('/getEmployeeCertifications', (req, res) => {
+    const getEmployee = "SELECT e.employee_id ,name,frigana ,DATE_FORMAT( entering_date , '%Y/%m/%d' ) entering_date," +
+    " certification_name, DATE_FORMAT( get_date , '%Y/%m/%d' ) get_date,  DATE_FORMAT( encourage_date , '%Y/%m/%d' ) encourage_date" +
+    ' from employee e,employee_certification c where e.employee_id = c.employee_id '
     db.query(getEmployee, (err, data) => {
       if (err) {
         console.log(err)
         res.status(500).send('database err').end()
       } else {
-        if (data.length === 0) {
+        if (data.length == 0) {
           res.status(500).send('no datas').end()
         } else {
           res.send(data)

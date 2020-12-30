@@ -18,7 +18,7 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
-       
+
         <v-btn
           color="primary"
           dark
@@ -27,7 +27,7 @@
         >
           新規
         </v-btn>
-         
+
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
             <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
@@ -69,4 +69,3 @@
 </div>
 </template>
 <script src="./js/searchPage.js"></script>
-

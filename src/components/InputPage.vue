@@ -3,9 +3,8 @@
     <v-text-field v-model="employeeId" :counter="6" :rules="employeeIdRules" label="社員ID" required></v-text-field>
     <v-text-field v-model="name" :counter="10" :rules="nameRules" label="名前" required></v-text-field>
 
-
     <v-text-field v-model="frigana" label="フリガナ"></v-text-field>
-    
+
     <v-menu
         v-model="menu1"
         :close-on-content-click="false"
@@ -29,7 +28,7 @@
           @input="menu1 = false"
         ></v-date-picker>
       </v-menu>
-      
+
     <v-text-field v-model="certificationName" :rules="certificationNameRules" label="資格" required></v-text-field>
 
     <v-menu
@@ -56,7 +55,6 @@
         ></v-date-picker>
       </v-menu>
 
-      
     <v-menu
         v-model="menu3"
         :close-on-content-click="false"
