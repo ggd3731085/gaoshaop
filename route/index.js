@@ -303,7 +303,7 @@ module.exports = () => {
   route.get('/getEmployeeCertifications', (req, res) => {
     const getEmployee = "SELECT e.employee_id ,name,frigana ,DATE_FORMAT( entering_date , '%Y/%m/%d' ) entering_date," +
     " certification_name, DATE_FORMAT( get_date , '%Y/%m/%d' ) get_date,  DATE_FORMAT( encourage_date , '%Y/%m/%d' ) encourage_date" +
-    ' from employee e,employee_certification c where e.employee_id = c.employee_id '
+    ' from employee_certification c left join e on e.employee_id = c.employee_id '
     db.query(getEmployee, (err, data) => {
       if (err) {
         console.log(err)
