@@ -1,13 +1,13 @@
 <template>
-<div id="app">
+  <div id="app">
   <v-app id="inspire">
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    sort-by="calories"
-    class="elevation-1"
-  >
-    <template v-slot:top>
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      sort-by="calories"
+      class="elevation-1"
+    >
+      <template v-slot:top>
       <v-toolbar
         flat
       >
@@ -40,8 +40,8 @@
           </v-card>
         </v-dialog>
       </v-toolbar>
-    </template>
-    <template v-slot:item.actions="{ item }">
+      </template>
+      <template v-slot:item.actions="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -55,17 +55,17 @@
       >
         mdi-delete
       </v-icon>
-    </template>
-    <template v-slot:no-data>
+      </template>
+      <template v-slot:no-data>
       <v-btn
         color="primary"
         @click="initialize"
       >
         Reset
       </v-btn>
-    </template>
-  </v-data-table>
-    </v-app>
-</div>
+      </template>
+    </v-data-table>
+  </v-app>
+  </div>
 </template>
 <script src="./js/searchPage.js"></script>

@@ -12,7 +12,9 @@ import 'vuetify/dist/vuetify.min.css' // 导入 vuetify样式
 
 Vue.config.productionTip = false
 Vue.use(Loading)
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  iconfont: 'md' || 'mdi'
+})
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: require('./assets/images/err.png'),
