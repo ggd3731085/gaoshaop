@@ -198,7 +198,7 @@ module.exports = () => {
     let editedItem = mObj.editedItem
     let employeeId = editedItem.employee_id
     let certificationName = editedItem.certification_name
-    const deleteEmployeeCertificationSql = `Delete employee_certification Where employee_id = '${employeeId}' And certification_name = '${certificationName}')`
+    const deleteEmployeeCertificationSql = `Delete employee_certification Where employee_id = '${employeeId}' And certification_name = '${certificationName}'`
     console.log(deleteEmployeeCertificationSql)
     deleteEmployeeCertification(deleteEmployeeCertificationSql, res)
   })
