@@ -47,7 +47,7 @@ export default {
         this.enteringDate = this.parentData.entering_date,
         this.certificationName = this.parentData.certification_name,
         this.getDate = this.parentData.get_date,
-        this.encourageDate = this.parentData.encourage_date
+        this.encourageDate = this.parentData.encourage_date,
         this.updateMode = true
       }
     },
@@ -72,7 +72,7 @@ export default {
           if (res.status === 200) {
             _this.regInfo = res.data
             if (_this.regInfo.status === 1) {
-              alert('提出成功しました。');
+              alert('提出成功しました。')
               this.$emit('handleSwitch', 'search')
             } else {
               alert('提出失敗しました。')
