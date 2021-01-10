@@ -86,7 +86,9 @@ export default {
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
       let _this = this
-      _this.$http.post('/deleteEmployeeCertification').then((res) => {
+      _this.$http.post('/deleteEmployeeCertification', {
+        editedItem: _this.editedItem
+      }).then((res) => {
         if (res.status === 200) {
           alert('データを削除しました。')
         } else {
