@@ -85,6 +85,18 @@ export default {
     deleteItem (item) {
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
+      let _this = this
+      _this.$http.post('/deleteEmployeeCertification').then((res) => {
+        if (res.status === 200) {
+          alert('データを削除しました。')
+        } else {
+          alert('エラーが発生しました。')
+        }
+        console.log(res)
+      }, (err) => {
+        alert('APIエラーが発生しました。')
+        console.log(err)
+      })
       this.dialogDelete = true
     },
 

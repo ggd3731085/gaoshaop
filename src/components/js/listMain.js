@@ -14,7 +14,7 @@ export default {
         'フリガナ',
         '入社年月日'
       ],
-      items: [],
+      items: []
     }
   },
   computed: {
@@ -23,26 +23,24 @@ export default {
     },
     filteredKeys () {
       return this.keys.filter(key => key !== 'name')
-    },
+    }
   },
   mounted: function () {
+    let _this = this
 
-    let _this = this;
+    _this.$http.get('/employeeinfo').then((res) => {
+      if (res.status == 200) {
+        console.log('res.data ', res.data)
+        this.items = res.data
+      } else {
+        alert('エラーが発生しました。')
+      }
+      console.log(res)
+    }, (err) => {
+      alert('APIエラーが発生しました。')
+      console.log(err)
+    })
 
-      _this.$http.get('/employeeinfo').then((res)=>{
-    if(res.status == 200){
-      console.log('res.data ', res.data)
-      this.items = res.data;
-    }else{
-        alert('エラーが発生しました。');
-    }
-        console.log(res);
-    },(err)=>{
-        alert('APIエラーが発生しました。');
-        console.log(err);
-    });
-
-      
     this.$nextTick(function () {
 
       // Code that will run only after the
@@ -58,6 +56,6 @@ export default {
     },
     updateItemsPerPage (number) {
       this.itemsPerPage = number
-    },
-  },
+    }
+  }
 }

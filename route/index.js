@@ -188,9 +188,9 @@ module.exports = () => {
     delReg(insUserInfo, res)
   })
   /*
-   *user reg func
+   *資格管理情報を削除
    */
-  /* route.post('/saveEmployeeCertification', (req, res) => {
+  route.post('/deleteEmployeeCertification', (req, res) => {
     let mObj = {}
     for (let obj in req.body) {
       mObj = JSON.parse(obj)
@@ -201,9 +201,22 @@ module.exports = () => {
     let getDate = editedItem.get_date
     let encourageDate = editedItem.encourage_date
 
-    const insEmployeeCertificationSql = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employeeId}','${certificationName}','${getDate}','${encourageDate}')`
-    insEmployeeCertification(insEmployeeCertificationSql, res)
-  }) */
+    const deleteEmployeeCertificationSql = `Delete employee_certification Where employee_id = '${employeeId}' And certification_name = '${certificationName}')`
+    deleteEmployeeCertification(deleteEmployeeCertificationSql, res)
+  })
+  /*
+   *deal deleteEmployeeCertificationSql
+   */
+  function deleteEmployeeCertification (deleteEmployeeCertificationSql, res) {
+    db.query(deleteEmployeeCertificationSql, (err) => {
+      if (err) {
+        console.error(err)
+        res.send({ 'msg': '服务器出错', 'status': 0 }).end()
+      } else {
+        res.send({ 'msg': '注册成功', 'status': 1 }).end()
+      }
+    })
+  };
   route.post('/saveEmployeeCertification', (req, res) => {
     let mObj = {}
     for (let obj in req.body) {
@@ -282,6 +295,9 @@ module.exports = () => {
       }
     })
   })
+  /*
+   *deal user register
+   */
   route.get('/userinfo', (req, res) => {
     let uId = req.query.uId
     console.log('uId:' + uId)
@@ -300,6 +316,9 @@ module.exports = () => {
       }
     })
   })
+  /*
+   *資格管理の情報を取得
+   */
   route.get('/getEmployeeCertifications', (req, res) => {
     const getEmployee = "SELECT e.employee_id ,name,frigana ,DATE_FORMAT( entering_date , '%Y/%m/%d' ) entering_date," +
     " certification_name, DATE_FORMAT( get_date , '%Y/%m/%d' ) get_date,  DATE_FORMAT( encourage_date , '%Y/%m/%d' ) encourage_date" +

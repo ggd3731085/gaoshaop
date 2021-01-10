@@ -18,7 +18,6 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
-
         <v-btn
           color="primary"
           dark
@@ -27,10 +26,9 @@
         >
           新規
         </v-btn>
-
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
+            <v-card-title class="headline">削除してもよろしいでしょうか?</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
@@ -42,19 +40,19 @@
       </v-toolbar>
       </template>
       <template v-slot:item.actions="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="editItem(item)"
-      >
-        mdi-pencil
-      </v-icon>
-      <v-icon
+        <v-icon
+          small
+          class="mr-2"
+          @click="editItem(item)"
+        >
+          mdi-pencil
+        </v-icon>
+        <v-icon
         small
         @click="deleteItem(item)"
-      >
+        >
         mdi-delete
-      </v-icon>
+        </v-icon>
       </template>
       <template v-slot:no-data>
       <v-btn
