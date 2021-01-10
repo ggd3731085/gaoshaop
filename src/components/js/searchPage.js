@@ -85,6 +85,12 @@ export default {
     deleteItem (item) {
       this.editedIndex = this.desserts.indexOf(item)
       this.editedItem = Object.assign({}, item)
+      this.dialogDelete = true
+    },
+
+    deleteItemConfirm () {
+      this.desserts.splice(this.editedIndex, 1)
+      Object.assign(this.desserts[this.editedIndex], this.editedItem)
       let _this = this
       _this.$http.post('/deleteEmployeeCertification', {
         editedItem: _this.editedItem
@@ -99,11 +105,6 @@ export default {
         alert('APIエラーが発生しました。')
         console.log(err)
       })
-      this.dialogDelete = true
-    },
-
-    deleteItemConfirm () {
-      this.desserts.splice(this.editedIndex, 1)
       this.closeDelete()
     },
 
