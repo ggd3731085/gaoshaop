@@ -10,6 +10,10 @@ import store from './store/'
 import Vuetify from 'vuetify' // 使用vuetify UI框架
 import 'vuetify/dist/vuetify.min.css' // 导入 vuetify样式
 
+// 以下、Vuetifyのicon
+import '@mdi/font/css/materialdesignicons.css'// mdi
+import 'material-design-icons-iconfont/dist/material-design-icons.css'// md
+
 Vue.config.productionTip = false
 Vue.use(Loading)
 Vue.use(Vuetify, {
