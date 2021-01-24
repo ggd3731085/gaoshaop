@@ -20,8 +20,8 @@ export default {
   mounted: function () {
     let _this = this
 
-    _this.$http.get('/employees').then((res) => {
-      if (res.status == 200) {
+    _this.$http.get('/getEmployees').then((res) => {
+      if (res.status === 200) {
         console.log('res.data ', res.data)
         this.desserts = res.data
       } else {

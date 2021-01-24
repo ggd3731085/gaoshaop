@@ -334,5 +334,20 @@ module.exports = () => {
       }
     })
   })
+  route.get('/getEmployees', (req, res) => {
+    const getEmployee = "SELECT employee_id ,name,frigana ,DATE_FORMAT( entering_date , '%Y-%m-%d' ) entering_date from employee "
+    db.query(getEmployee, (err, data) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send('database err').end()
+      } else {
+        if (data.length === 0) {
+          res.status(500).send('no datas').end()
+        } else {
+          res.send(data)
+        }
+      }
+    })
+  })
   return route
 }
