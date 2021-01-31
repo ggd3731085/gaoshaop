@@ -14,7 +14,7 @@ export default {
         'フリガナ',
         '入社年月日'
       ],
-      items: []
+      items: [],
     }
   },
   computed: {
@@ -23,13 +23,14 @@ export default {
     },
     filteredKeys () {
       return this.keys.filter(key => key !== 'name')
-    }
+    },
   },
   mounted: function () {
-    let _this = this
+
+    let _this = this;
 
     _this.$http.get('/employeeinfo').then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         console.log('res.data ', res.data)
         this.items = res.data
       } else {

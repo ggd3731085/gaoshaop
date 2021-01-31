@@ -4,10 +4,16 @@ export default {
     dialogDelete: false,
     headers: [
       {
+          text: 'No.',
+          align: 'start',
+          sortable: false,
+          value: 'row_num',
+        },
+        {
         text: '名前',
         align: 'start',
         sortable: false,
-        value: 'name'
+          value: 'name',
       },
       { text: '社員ID', value: 'employee_id' },
       { text: 'フリガナ', value: 'frigana' },
@@ -15,7 +21,7 @@ export default {
       { text: '資格', value: 'certification_name' },
       { text: '取得年月日', value: 'get_date' },
       { text: '奨励金日付', value: 'encourage_date' },
-      { text: '操作', value: 'actions', sortable: false }
+        { text: '操作', value: 'actions', sortable: false },
     ],
     desserts: [],
     editedIndex: -1,
@@ -24,21 +30,22 @@ export default {
       calories: 0,
       fat: 0,
       carbs: 0,
-      protein: 0
+        protein: 0,
     },
     defaultItem: {
       name: '',
       calories: 0,
       fat: 0,
       carbs: 0,
-      protein: 0
-    }
+        protein: 0,
+      },
+      search: '',
   }),
 
   computed: {
     formTitle () {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
-    }
+      },
   },
 
   watch: {
@@ -47,7 +54,7 @@ export default {
     },
     dialogDelete (val) {
       val || this.closeDelete()
-    }
+      },
   },
 
   created () {
@@ -56,7 +63,7 @@ export default {
 
   methods: {
     initialize () {
-      let _this = this
+          let _this = this;
 
       _this.$http.get('/getEmployeeCertifications').then((res) => {
         if (res.status === 200) {

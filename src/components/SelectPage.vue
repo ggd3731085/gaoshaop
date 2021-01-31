@@ -2,11 +2,16 @@
   <v-card>
     <v-card-title>
       社員一覧
+      <v-divider
+        class="mx-4"
+        inset
+        vertical
+      ></v-divider>
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Search"
+        label="検索"
         single-line
         hide-details
       ></v-text-field>
@@ -16,7 +21,7 @@
       :headers="headers"
       :items="desserts"
       single-select
-      item-key="name"
+      item-key="employee_id"
       show-select
       :search="search"
       class="elevation-1"
@@ -25,9 +30,9 @@
     <div class="text-center pt-2">
       <v-btn
         color="primary"
-        @click="nextSort"
+        @click="toInput"
       >
-        Sort next column
+        決定
       </v-btn>
     </div>
   </v-card>

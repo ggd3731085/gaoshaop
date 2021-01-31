@@ -4,6 +4,7 @@
     <v-data-table
       :headers="headers"
       :items="desserts"
+    :search="search"
       sort-by="calories"
       class="elevation-1"
     >
@@ -18,6 +19,15 @@
           vertical
         ></v-divider>
         <v-spacer></v-spacer>
+
+        <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="検索"
+        single-line
+        hide-details
+      ></v-text-field>
+       
         <v-btn
           color="primary"
           dark
@@ -26,13 +36,14 @@
         >
           新規
         </v-btn>
+         
         <v-dialog v-model="dialogDelete" max-width="500px">
           <v-card>
-            <v-card-title class="headline">削除してもよろしいでしょうか?</v-card-title>
+            <v-card-title class="headline">削除してよろしいでしょうか？</v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
+              <v-btn color="blue darken-1" text @click="closeDelete">いいえ</v-btn>
+              <v-btn color="blue darken-1" text @click="deleteItemConfirm">はい</v-btn>
               <v-spacer></v-spacer>
             </v-card-actions>
           </v-card>
@@ -59,7 +70,7 @@
         color="primary"
         @click="initialize"
       >
-        Reset
+        再検索
       </v-btn>
       </template>
     </v-data-table>
