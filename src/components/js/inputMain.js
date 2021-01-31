@@ -61,7 +61,7 @@ export default {
         let _this = this
 
         _this.$http.get('/employees').then((res) => {
-          if (res.status == 200) {
+          if (res.status === 200) {
             console.log('res.data ', res.data)
             this.employeeIds = res.data
           } else {
