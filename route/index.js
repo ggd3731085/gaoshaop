@@ -364,6 +364,28 @@ module.exports = () => {
       }
     })
   })
+  route.post('/updateEmployee', (req, res) => {
+    let mObj = {}
+    for (let obj in req.body) {
+      mObj = JSON.parse(obj)
+    }
+    let editedItem = mObj
+    var employee_id = editedItem.employeeId
+    var name = editedItem.name
+    var frigana = editedItem.frigana
+    var entering_date = editedItem.enteringDate
+
+    // 社員IDを存在するかチェック 存在していない場合、社員挿入する
+    checkEmployee(editedItem, res, (existEmployee) => {
+      if (existEmployee) {
+        // 存在する場合、社員を更新
+        const upEmployee = `update employee set name = '${name}', frigana = '${frigana}', entering_date = '${entering_date}' ` +
+            `where employee_id = '${employee_id}' `
+
+        delReg(upEmployee, res)
+      }
+    })
+  })
   route.post('/updateEmployeeCertification', async (req, res) => {
     let mObj = {}
     for (let obj in req.body) {
