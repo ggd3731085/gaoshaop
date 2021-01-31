@@ -364,5 +364,66 @@ module.exports = () => {
       }
     })
   })
+  route.post('/updateEmployeeCertification', async (req, res) => {
+    let mObj = {}
+    for (let obj in req.body) {
+      mObj = JSON.parse(obj)
+    }
+    let editedItem = mObj
+    var employee_id = editedItem.employeeId
+    var certification_name = editedItem.certificationName
+    var certification_id = editedItem.certificationId
+    var get_date = editedItem.getDate
+    var encourage_date = editedItem.encourageDate ? editedItem.encourageDate : editedItem.getDate
+
+    // 社員IDを存在するかチェック 存在していない場合、社員挿入する
+    checkEmployee(editedItem, res, (existEmployee) => {
+      // 社員ID存在、資格ID存在、更新
+      if (existEmployee) {
+        if (certification_id) {
+          const upEmployee_certification = `update employee_certification set certification_name = '${certification_name}',get_date = '${get_date}', encourage_date = '${encourage_date}' ` +
+                `where employee_id = '${employee_id}' and certification_id = '${certification_id}'`
+          delReg(upEmployee_certification, res)
+        } else {
+          const insEmployee_certification = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
+          delReg(insEmployee_certification, res)
+        }
+      }
+    })
+  })
+  function checkEmployee (editedItem, res, callback) {
+    var employee_id = editedItem.employeeId
+    var name = editedItem.name
+    var frigana = editedItem.frigana
+    var entering_date = editedItem.enteringDate
+    var certification_name = editedItem.certificationName
+    var get_date = editedItem.getDate
+    var encourage_date = editedItem.encourageDate ? editedItem.encourageDate : editedItem.getDate
+
+    const getEmployee = `SELECT e.employee_id from employee e where e.employee_id = '${employee_id}'`
+    db.query(getEmployee, (err, data) => {
+      if (err) {
+        console.log(err)
+        res.status(500).send('database err').end()
+        callback(false)
+      } else {
+        if (data.length == 0) {
+          const insEmployee = `INSERT INTO employee(employee_id,name,frigana,entering_date) VALUES('${employee_id}','${name}','${frigana}','${entering_date}')`
+          db.query(insEmployee, (err) => {
+            if (err) {
+              console.log(err)
+              res.status(500).send('database err').end()
+            } else {
+              const insEmployee_certification = `INSERT INTO employee_certification(employee_id,certification_name,get_date,encourage_date) VALUES('${employee_id}','${certification_name}','${get_date}','${encourage_date}')`
+              delReg(insEmployee_certification, res)
+            }
+          })
+          callback(false)
+        } else {
+          callback(true)
+        }
+      }
+    })
+  }
   return route
 }

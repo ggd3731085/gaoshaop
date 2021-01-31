@@ -6,6 +6,55 @@
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
         <v-toolbar-title>{{title}}</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+          <!-- <v-icon @click="logout">mdi-logout</v-icon> -->
+          <v-icon @click.stop="dialog = true">mdi-logout</v-icon>
+        </v-btn>
+
+        <v-dialog
+          v-model="dialog"
+          max-width="490"
+        >
+          <v-card>
+            <v-card-title class="headline">
+              ログアウトしてよろしいでしょうか?
+            </v-card-title>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="dialog = false"
+              >
+                いいえ
+              </v-btn>
+
+              <v-btn
+                color="green darken-1"
+                text
+                @click="logout"
+              >
+                はい
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <template v-slot:extension>
+          <v-tabs align-with-title v-model="tab">
+            <v-tabs-slider color="yellow"></v-tabs-slider>
+
+          <v-tab
+            v-for="item in items"
+            :key="item.name"
+            @click="item.event"
+          >
+            {{ item.name }}
+          </v-tab>
+          </v-tabs>
+        </template>
       </v-app-bar>
 
       <v-navigation-drawer v-model="drawer" absolute temporary>
@@ -38,11 +87,12 @@
       <div v-if="title=='検索画面'">
         <SearchMainView v-on:handleSwitch="handleSwitch"></SearchMainView>
       </div>
-      <div v-else-if="title=='入力画面' ||title=='更新画面' ">
+		
+	<div v-else-if="title=='入力画面'">
         <InputMainView :parentData="inputData" v-on:handleSwitch="handleSwitch"></InputMainView>
       </div>
       <div v-else-if="title=='社員一覧'">
-        <ListMainView v-on:handleSwitch="handleSwitch"></ListMainView>
+		<SelectMainView v-on:handleSwitch="handleSwitch"></SelectMainView>
       </div>
     </v-card>
   </v-app>
