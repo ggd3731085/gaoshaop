@@ -326,7 +326,7 @@ module.exports = () => {
         console.log(err)
         res.status(500).send('database err').end()
       } else {
-        if (data.length == 0) {
+        if (data.length === 0) {
           res.status(500).send('no datas').end()
         } else {
           res.send(data)
@@ -356,7 +356,7 @@ module.exports = () => {
         console.log(err)
         res.status(500).send('database err').end()
       } else {
-        if (data.length == 0) {
+        if (data.length === 0) {
           res.status(500).send('no datas').end()
         } else {
           res.send(data)
